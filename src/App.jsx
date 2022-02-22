@@ -7,11 +7,18 @@ function App() {
 
   const [query, setQuery] = useState("")
 
+  const keys = ["first_name", "last_name", "email"]
+
+  console.log(keys[0])
+
+
+
   const search = (data) => {
     return data.filter(
       (item) =>
-        item.first_name.toLowerCase().includes(query) || item.last_name.toLowerCase().includes(query))
-      }
+        keys.some((key) => item[key].toLowerCase().includes(query))
+    )
+  }
 
   return (
     <div className="App">
